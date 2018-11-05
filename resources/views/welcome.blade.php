@@ -9,15 +9,26 @@
         </li>
     </ul>
 </nav>
+</div>
+<div class="row">
+    <form action="/messages/create" method="post">
+        <div class="form-group">
+            {{csrf_field()}}
+        <input type="text" name="message" class="form-control" placeholder="que estas pensando?"/>
+        </div>
+    </form>
+</div>
+
 <div class="row">
     @foreach($messages as $message)
     <div class="col-6">
         <img class="img-thumbnail" src="{{$message->image}}">
-    </div>
+    
     <p class="card-text">
     {{$message->content }}
     <a href="/messages/{{ $message->id }}">leer mas</a>
     </p>
+    </div>
     @endforeach
 </div>
 @endsection
