@@ -12,10 +12,11 @@
 <div class="row">
     @foreach($messages as $message)
     <div class="col-6">
-        <img class="img-thumbnail" src="{{$message['imagen']}}">
+        <img class="img-thumbnail" src="{{$message->image}}">
     </div>
     <p class="card-text">
-    {{$message['content']}}
+    {{$message->content }}
+    <a href="/messages/{{ $message->id }}">leer mas</a>
     </p>
     @endforeach
 </div>
