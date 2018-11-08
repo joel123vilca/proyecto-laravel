@@ -25,7 +25,7 @@
 </div>
 
 <div class="row">
-    @foreach($messages as $message)
+    @forelse($messages as $message)
     <div class="col-6">
         <img class="img-thumbnail" src="{{$message->image}}">
     
@@ -34,6 +34,14 @@
     <a href="/messages/{{ $message->id }}">leer mas</a>
     </p>
     </div>
-    @endforeach
+    @empty
+    <p>NO HAY MENSAJES DESTACADOS.</p>
+    @endforelse
+
+    @if(count($messages))
+    <div class="mt-2 mx-auto">
+    {{ $messages->links('pagination::bootstrap-4') }}
+    </div>
+    @endif
 </div>
 @endsection
